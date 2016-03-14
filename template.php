@@ -83,7 +83,7 @@ function open_framework_preprocess_page(&$vars) {
   }
 
   if ($font_awesome_version == 'font-awesome-4') {
-  drupal_add_css(drupal_get_path('theme', 'open_framework') . '/packages/font-awesome-4.3.0/css/font-awesome.min.css', array('group' => CSS_DEFAULT, 'media' => 'all', 'weight' => 20, 'preprocess' => TRUE));
+  drupal_add_css(drupal_get_path('theme', 'open_framework') . '/packages/font-awesome-4.5.0/css/font-awesome.min.css', array('group' => CSS_DEFAULT, 'media' => 'all', 'weight' => 20, 'preprocess' => TRUE));
   }
 
   // Add page template suggestions based on the aliased path. For instance, if the current page has an alias of about/history/early, we'll have templates of:
@@ -279,7 +279,7 @@ function open_framework_status_messages($variables) {
   );
 
   foreach (drupal_get_messages($display) as $type => $messages) {
-    $class = (isset($status_class[$type])) ? ' alert-' . $status_class[$type] : '';
+    $class = (isset($status_class[$type])) ? ' alert-' . $status_class[$type] : " " . drupal_clean_css_identifier($type);
     $output .= "<div class=\"alert alert-block$class\">\n";
 
     if (arg(0) != 'admin' && arg(0) != 'panels' && arg(0) != 'ctools') {
